@@ -1,5 +1,8 @@
 # Overview
 
+## Introduction
+2D echocardiography (echo) is likely? the most common imaging modality used for measuring left ventricular function. It is noninvasive, low cost, fast turnaround time, and has high temporal resolution. Measurement of left ventricular ejection fraction (LVEF) is a common reason for echo, but output of LV boundaries are in discrete 2D planes. 3D LV geometry needs to be reconstructed from those planes to quantify LV wall motion, acceleration, and strain, or to carry out flow simulations.
+
 **Whole heart reconstruction**: refers to the process of generating a 3D model of the entire heart from a series of 2D medical images, such as CT or MRI scans. This technique is also known as **"cardiac 3D reconstruction"** and can be used to visualize the heart in 3D and analyze its structure, function, and pathology. This approach can be useful for diagnosis, treatment planning, and research in various cardiovascular conditions.
 
 The process of whole heart reconstruction typically involves multiple steps as below. It requires specialized software and expertise in medical image processing and cardiac anatomy:
