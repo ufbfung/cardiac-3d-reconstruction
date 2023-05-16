@@ -41,6 +41,9 @@ Proposed by Xie et al. as a lighter weight, albeit lower performing, variant of 
 ### E-PiVox from Stojanvoski D. et al.
 Adaptation of PiVox networks via addition of 3D convolution at end of encoder module along the input image dimension to reduce decoder to a single branch for any number of input images.
 
+### 3d reconstruction algorithm from [Kim T. et al. 2021.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8047352/)
+
+
 ### Summary of methods
 |Method|Category|Description|Supervision|
 |---|---|---|---|
