@@ -1,11 +1,11 @@
 # Overview
 
 ## Introduction
-2D echocardiography (echo) is the most widely used imaging modality for measuring left ventricular function. It is noninvasive, low cost, fast turnaround time, and has high temporal resolution. Measurement of left ventricular ejection fraction (LVEF) is a common reason for echo, but output of LV boundaries are in discrete 2D planes. 3D LV geometry needs to be reconstructed from those planes to quantify LV wall motion, acceleration, and strain, or to carry out flow simulations.
+2D echocardiography (echo) is the most widely used imaging modality for measuring left ventricular function. It is noninvasive, low cost, fast turnaround time, and has high temporal resolution. Measurement of left ventricular ejection fraction (LVEF) is a common reason for echo, but output of LV boundaries are in discrete 2D planes. 3D LV geometry needs to be reconstructed from those planes to quantify LV wall motion, acceleration, and strain, or to carry out flow simulations. 
 
 The normal LV is shaped as a prolate ellipsoid. 
 
-MRI, 3D echo, and CT can all produce 3D surface data, but typically require longer acquisition times (>10 min) or higher costs. They also all suffer from low temporal resolution (~20-30 frames per second (fps)). Differentiation between cardiac phases and accurate quantitative measures on LV motion require high temporal sampling of ventricular borders. This gives 2D echo an advantage over the other modalities due to its high temporal resolution (~250 fps down to ~50 fps to resolve whole LV). 
+MRI, 3D echo, and CT can all produce 3D surface data, but typically require longer acquisition times (>10 min) or higher costs. They also all suffer from low temporal resolution (~20-30 frames per second (fps)). Differentiation between cardiac phases and accurate quantitative measures on LV motion require high temporal sampling of ventricular borders. This gives 2D echo an advantage over the other modalities due to its high temporal resolution (~250 fps down to ~50 fps to resolve whole LV). [Rajan et al. 2016](https://pubmed.ncbi.nlm.nih.gov/26548948/). However, the challenge is the reconstruction of a 3D model from few, spatially cross-sectional data. 
 
 #### Views
 Standardized LA projections, according to the American Society of Echocardiography, is defined as apical two-chamber (A2C), three chamber (A3C), and four-chamber (A4C), and standardized SA projections are basal, mid, and apical.
@@ -20,6 +20,18 @@ The process of whole heart reconstruction typically involves multiple steps as b
 - segmentation
 - registration
 - 3D modeling
+
+**Spatial orientation**: Per [Rajan et al. 2016](https://pubmed.ncbi.nlm.nih.gov/26548948/), the spatial orientation of the six, standardized views can be approximated as follows:
+|Section|View|Orientation|Apex to base length|
+|---|---|---|---|
+|LA|A4C|α = 0|n/a|
+|LA|A2C|α = π/3|n/a|
+|LA|A3C|α = 2π/3|n/a|
+|SA|basal|α = 0| z=0.0|
+|SA|mid|α = 0| z=0.5L|
+|SA|apical|α = 0| z=0.8L|
+
+**Computational fluid dynamics (CFD)**: The reconstructured, 3D LV is used as an input for CFD simulations of the LV flow. It's important for the motion of the LV to be smoothened for the input to generate smooth flow rates. 
 
 ## Goal
 The primary goal of this repository is to explore various methods that allow 3D reconstruction of the heart from 2D echocardiography images.
@@ -43,6 +55,8 @@ Adaptation of PiVox networks via addition of 3D convolution at end of encoder mo
 
 ### 3d reconstruction algorithm from [Kim T. et al. 2021.](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8047352/)
 
+### 3d reconstruction algorithm used in Kim 2021, previously developed by [Rajan et al. 2016](https://pubmed.ncbi.nlm.nih.gov/26548948/)
+
 
 ### Summary of methods
 |Method|Category|Description|Supervision|
@@ -63,4 +77,6 @@ Adaptation of PiVox networks via addition of 3D convolution at end of encoder mo
 2. Automatic segmentation of the left ventricle in echocardiographic images using convolutional neural networks 
 3. 3D High-Resolution Cardiac Segmentation Reconstruction from 2D Views using Conditional Variational Autoencoders 
 4. Automated Three-Dimensional Reconstruction of the Left Ventricle From Multiple-Axis Echocardiography 
-5. Efficient Pix2Vox++ for 3D Cardiac Reconstruction from 2D Echo Views 
+5. Efficient Pix2Vox++ for 3D Cardiac Reconstruction from 2D Echo Views
+6. [Automated Three-Dimensional Reconstruction of the Left Ventricle From Multiple-Axis Echocardiography](https://pubmed.ncbi.nlm.nih.gov/26548948/)
+7. [3d Reconstruction of the Left Ventricle From Multiple-Axis Echocardiography Images](https://asmedigitalcollection.asme.org/IDETC-CIE/proceedings-abstract/IDETC-CIE2014/46285/V01AT02A046/256527)
