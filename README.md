@@ -7,6 +7,14 @@ The normal LV is shaped as a prolate ellipsoid.
 
 MRI, 3D echo, and CT can all produce 3D surface data, but typically require longer acquisition times (>10 min) or higher costs. They also all suffer from low temporal resolution (~20-30 frames per second (fps)). Differentiation between cardiac phases and accurate quantitative measures on LV motion require high temporal sampling of ventricular borders. This gives 2D echo an advantage over the other modalities due to its high temporal resolution (~250 fps down to ~50 fps to resolve whole LV). [Rajan et al. 2016](https://pubmed.ncbi.nlm.nih.gov/26548948/). However, the challenge is the reconstruction of a 3D model from few, spatially cross-sectional data. 
 
+#### Calculating Ejection Fraction (EF) per [YouTube video from Nonstop Neuron](https://www.youtube.com/watch?v=OJWJ9MG4yYU)
+Let's begin by defining a few terms:
+- **End diastolic volume (EDV)**: quantity of blood in the ventricles at the end of diastole (heart relaxes and fills with blood). Normal EDV is 120 ml for each ventricle.
+- **Systole**: This is when heart contracts and some of the blood is pumped out. 
+- **Stroke volume (SV)**: Volume of blood that is pumped out during systole. Normal SV is 70 mL for each ventricle. 
+- **End systolic volume (ESV)**: Volume of blood that is remaining in the ventricle at the end of systole. Normal ESV is 50 mL since normal EDV (120 mL) minus normal SV (70 mL) is 50 mL.
+- **Ejection fraction (EF)**: The fraction of end-diastolic volume that is ejected during systole. Thus, normal EF = SV/EDV or normal EF = 60% (70mL/120mL). 
+
 #### Views
 Standardized LA projections, according to the American Society of Echocardiography, is defined as apical two-chamber (A2C), three chamber (A3C), and four-chamber (A4C), and standardized SA projections are basal, mid, and apical.
 
@@ -32,6 +40,12 @@ The process of whole heart reconstruction typically involves multiple steps as b
 |SA|apical|α = 0| z=0.8L|
 
 **Computational fluid dynamics (CFD)**: The reconstructured, 3D LV is used as an input for CFD simulations of the LV flow. It's important for the motion of the LV to be smoothened for the input to generate smooth flow rates. 
+
+**Video dimensions**: When processing videos using OpenCV, they will typically have the following dimensions:
+- **Time**: represents the number of rames in the video, indicating the temporal aspect.
+- **Height**: refers to the vertical resolution of each frame, representing the number of rows of pixels
+- **Width**: refers to the horizontal resolution of each frame, representing the number of columns of pixels
+- **Channels**: represents the number of color channels in each pixel. For grayscale videos, the number of channels is usually 1 (indicating intensity). For color videos, the number of channels is typically 3 (representing Red, Green, and Blue color channels). 
 
 ## Goal
 The primary goal of this repository is to explore various methods that allow 3D reconstruction of the heart from 2D echocardiography images.
