@@ -71,6 +71,28 @@ Adaptation of PiVox networks via addition of 3D convolution at end of encoder mo
 
 ### 3d reconstruction algorithm used in Kim 2021, previously developed by [Rajan et al. 2016](https://pubmed.ncbi.nlm.nih.gov/26548948/)
 
+### Simple Ellipsoid reconstruction
+This section describes a simple method of doing a 3d reconconstruction using two, 2D echocardiography views: A4C and PSAX. As referenced in other articles, the shape of the left ventricle resembles that of an ellipsoid. Because we have a LA view from A4C and a SA view from PSAX, we can do a simplified reconstruction by calculating the cross-sectional shapes (i.e. circle and an ellipse) that form the ellipsoid since it is symmetrical about three mutually perpendicular axes that intersect at the centre.
+
+<div align="center">
+
+**The formula is defined as:** 
+  
+$$
+\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+$$
+
+In this formula, x, y, and z are variables, and a, b, and c are constants.
+</div>
+
+**Shapes dictated by constants:**
+|Shape|Scenario|Comment|
+|---|---|---|
+|Sphere|a=b=c|Intersection with any plane passing through it is a circle|
+|Ellipsoid of revolution (aka spheroid)|a=b, but different from c|Formed by revolving an ellipse about one of its axes|
+|Oblate spheroid|a+b>c|n/a|
+|Prolate spheroid|a+b<c|n/a|
+
 
 ### Summary of methods
 |Method|Category|Description|Supervision|
