@@ -90,9 +90,11 @@ In this formula, x, y, and z are variables, and a, b, and c are constants.
 |---|---|---|
 |Sphere|a=b=c|Intersection with any plane passing through it is a circle|
 |Ellipsoid of revolution (aka spheroid)|a=b, but different from c|Formed by revolving an ellipse about one of its axes|
-|Oblate spheroid|a+b>c|n/a|
-|Prolate spheroid|a+b<c|n/a|
+|Oblate spheroid|a+b>c|Formed by revolving an ellipse about its minor axis|
+|Prolate spheroid|a+b<c|Formed by revolving an ellipse about its major axis|
 
+**Ellipse**
+The ellipse is one of the cross-sectional shapes from an ellipsoid. The **major axis** is the line segment going through the farest points on an ellipse. The **minor axis** is the segment going through the closest. 
 
 ### Summary of methods
 |Method|Category|Description|Supervision|
